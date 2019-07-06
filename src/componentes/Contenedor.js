@@ -1,18 +1,18 @@
 import React,{Component} from "react";
 import ListadoElementos from "./ListadoElementos"
 
-const arregloContactos=[
-    {id:1, nombre:"Julia",apellido:"cardenas",edad:24, telefono:"982412406",pais:"Peru"},
-    {id:2, nombre:"Daniel",apellido:"Flores",edad:20, telefono:"982412456",pais:"Peru"},
-    {id:3, nombre:"Julysa",apellido:"Carrasco",edad:15, telefono:"984562406",pais:"Brasil"},
-    {id:4, nombre:"Israel",apellido:"Lopez",edad:26, telefono:"988962406",pais:"Peru"},
-    {id:5, nombre:"Joel",apellido:"Garay",edad:30, telefono:"982002406",pais:"Peru"},
-    {id:6, nombre:"Juan",apellido:"gutierrez",edad:12, telefono:"936912406",pais:"Brasil"},
-    {id:7, nombre:"Carlos",apellido:"Pardo",edad:19, telefono:"987892406",pais:"Peru"},
-    {id:8, nombre:"Roy",apellido:"Huamani",edad:18, telefono:"982459406",pais:"Peru"},
-    {id:9, nombre:"Elias",apellido:"Mejia",edad:25, telefono:"982109406",pais:"Bolivia"},
-    {id:10, nombre:"Daniela",apellido:"Lucas",edad:17, telefono:"986602406",pais:"Peru"},
-    {id:11, nombre:"Maria",apellido:"jimenez",edad:19, telefono:"983642406",pais:"Peru"},
+const arregloLibros=[
+    {id:1, nombre:"Accidental Empires",autor:"Maria cardenas",precio:24 },
+    {id:2, nombre:"The Search",autor:"Joel Flores",precio:20 },
+    {id:3, nombre:"Start- Up",autor:"Ana Carrasco",precio:15 },
+    {id:4, nombre:"El Libro del Hacker",autor:"Jose Lopez",precio:26},
+    {id:5, nombre:"La guia Completa",autor:"Garay",precio:30},
+    {id:6, nombre:"El Libro del Programador",autor:"Luis gutierrez",precio:12},
+    {id:7, nombre:"Tecnologia",autor:"Fernando Pardo",precio:19},
+    {id:8, nombre:"Rendimiento de Software",autor:"Alejandro Huamani",precio:18},
+    {id:9, nombre:"Curso de Oracle",autor:"Israel Mejia",precio:25},
+    {id:10, nombre:"Internet Segura",autor:"Jose Angel Fernandez",precio:17},
+    {id:11, nombre:"Algoritmos",autor:"Aditya Bhargava",precio:19},
 ]
 
 class Contenedor extends Component{
@@ -20,7 +20,7 @@ class Contenedor extends Component{
     constructor(){
         super()
         this.state={
-            listaContactos:arregloContactos
+            listaLibros:arregloLibros
         }
     }
     escribiendo=(evento)=>{
@@ -31,17 +31,17 @@ class Contenedor extends Component{
 
     filtrar=(texto)=>{
         const listadoFiltrado=[];
-       for(let i=0;i<arregloContactos.length;i++){
-           const contactos=arregloContactos[i];
-           if(contactos.nombre.startsWith(texto)){
-               listadoFiltrado.push(contactos);
+       for(let i=0;i<arregloLibros.length;i++){
+           const libros=arregloLibros[i];
+           if(libros.nombre.startsWith(texto)){
+               listadoFiltrado.push(libros);
            }
        }
-       this.setState({listaContactos:listadoFiltrado})
+       this.setState({listaLibros:listadoFiltrado})
     }
     render(){
 
-        const{listaContactos}=this.state
+        const{listaLibros}=this.state
         return(
             <div>
                 Buscador web
@@ -49,7 +49,7 @@ class Contenedor extends Component{
               <div>
                 <div><input  onChange={this.escribiendo}/></div>
 
-                <ListadoElementos contactos={listaContactos} />
+                <ListadoElementos libros={listaLibros} />
               </div>
            </div>
 

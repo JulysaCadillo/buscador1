@@ -2,12 +2,12 @@ import React, {Component} from "react";
 
 class ListadoElementos extends Component{
     render(){
-        const{contactos}=this.props
+        const{libros}=this.props
         return(
             <div>
-                 <div>contactos</div>
+                 <div>Libros de Informatica</div>
                  <div>
-                     {contactos.map((item)=>{
+                     {libros.map((item)=>{
 
                          return(
                              <div key={item.id}>
